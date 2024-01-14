@@ -23,7 +23,8 @@ body {
 
 .container {
   margin: 30px auto;
-  width: 400px;
+  width: 90%; /* Use a percentage for width to make it more responsive */
+  max-width: 600px; /* Set a maximum width to avoid it becoming too wide on larger screens */
 }
 
 h1 {
@@ -47,6 +48,7 @@ h4 {
   box-shadow: var(--box-shadow);
   padding: 20px;
   display: flex;
+  flex-wrap: wrap; /* Allow flex items to wrap to the next line on smaller screens */
   justify-content: space-between;
   margin: 20px 0;
 }
@@ -54,6 +56,7 @@ h4 {
 .inc-exp-container > div {
   flex: 1;
   text-align: center;
+  margin: 10px 0;
 }
 
 .inc-exp-container > div:first-of-type {
@@ -122,6 +125,7 @@ input[type='number'] {
   position: relative;
   padding: 10px;
   margin: 10px 0;
+  flex-wrap: wrap; /* Allow list items to wrap to the next line on smaller screens */
 }
 
 .list li.plus {
@@ -164,26 +168,22 @@ input[type='number'] {
   transition: opacity 0.3s ease;
 }
 
-.list li:hover .delete-btn {
-  opacity: 1;
-}
-
+.list li:hover .delete-btn,
 .list li:hover .edit-btn {
   opacity: 1;
 }
 
 .modal {
   text-align: left;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 99999;
-    background-color: whitesmoke;
-    margin: 0px auto 0 auto;
-    padding: 30px;
-    /* max-width: 600px; */
-    
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 99999;
+  background-color: whitesmoke;
+  padding: 30px;
+  width: 80%; /* Set a percentage width for responsiveness */
+  max-width: 400px; /* Set a maximum width to prevent it from becoming too wide on larger screens */
 }
 
 .overlay {
@@ -201,4 +201,27 @@ input[type='number'] {
   float: right;
   z-index: 999999 !important;
   padding: 8px 14px;
+}
+
+/* Media Query for smaller screens */
+@media screen and (max-width: 600px) {
+  .inc-exp-container {
+    flex-direction: column;
+  }
+
+  .inc-exp-container > div {
+    width: 100%;
+  }
+
+  .list li,
+  .delete-btn,
+  .edit-btn {
+    font-size: 16px;
+    padding: 1px 3px;
+  }
+
+  .modal {
+    width: 90%; /* Adjust width for smaller screens if needed */
+    max-width: none; /* Reset max-width for smaller screens if needed */
+  }
 }
