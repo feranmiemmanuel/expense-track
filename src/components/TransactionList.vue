@@ -60,5 +60,6 @@
   }
   const editTransaction = (transactionId) => {
     emit('transactionEdit', transactionId)
+    myShow();
   }
 </script>
