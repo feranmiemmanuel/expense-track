@@ -28,7 +28,7 @@
           " class="modal-close btn btn_small">
           <i class="icn icn_close">x</i>
         </button>
-        <EditTransaction :transaction="transactionval" @transactionEdit = "editTransaction(transactionval)"/>
+        <EditTransaction :transaction="transactionval" @closeModal = "editTransaction"/>
       </div>
   </div>
 </template>
@@ -58,8 +58,7 @@
     showEdit.value = false;
     console.log("clicked");
   }
-  const editTransaction = (transactionId) => {
-    emit('transactionEdit', transactionId)
-    myShow();
+  const editTransaction = () => {
+    myShow() 
   }
 </script>
